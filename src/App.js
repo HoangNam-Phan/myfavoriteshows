@@ -1,24 +1,51 @@
-import logo from './logo.svg';
+import { Route, Switch, Link } from 'react-router-dom'
+import Main from './components/Main'
+import Create from './components/Create'
+import Lists from './components/Lists'
+import Search from './components/Search'
+
 import './App.css';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container-fluid">
+          <Link to='/' className="navbar-brand">
+            MyFavoriteSeries
+          </Link>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <Link to='/create' className="nav-link active" aria-current="page">
+                  Create List
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to='/lists' className="nav-link active" aria-current="page">
+                  Lists
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to='/search' className="nav-link active" aria-current="page">
+                  Search Show
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <Switch>
+        <Route exact path='/' component={Main} />
+        <Route exact path='/create' component={Create} />
+        <Route exact path='/lists' component={Lists} />
+        <Route exact path='/search' component={Search} />
+      </Switch>
+    </>
   );
 }
 
