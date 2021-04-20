@@ -1,4 +1,6 @@
 import { Route, Switch, Link } from 'react-router-dom'
+
+// COMPONENTS
 import Main from './components/Main'
 import Create from './components/Create'
 import Lists from './components/Lists'
@@ -9,7 +11,7 @@ import './App.css';
 
 function App() {
   return (
-    <>
+    <div className='body'>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <Link to='/' className="navbar-brand">
@@ -45,7 +47,7 @@ function App() {
         <Route exact path='/lists' component={Lists} />
         <Route exact path='/search' component={Search} />
       </Switch>
-    </>
+    </div>
   );
 }
 

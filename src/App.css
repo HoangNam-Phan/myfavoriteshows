@@ -1,3 +1,15 @@
+html {
+  background-color: #6b705c;
+}
+
+.body {
+  background-color: #6b705c;
+}
+
+.navbar {
+  background-color: #fca311 !important;
+}
+
 .container{
   height: 90vh;
 }
@@ -8,14 +20,17 @@
   flex-wrap: wrap;
 }
 
-.show {
+.series {
   width: 250px;
   text-align: center;
 }
 
-.show:hover {
-  background-color: grey;
+.series:hover {
+  background-color: #a5a58d;
   cursor: pointer;
   transition: 0.5s;
 }
 
+.modalShowSummary {
+  text-align: start;
+}

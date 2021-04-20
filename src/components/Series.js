@@ -11,12 +11,12 @@ const Series = ({ show }) => {
 
     return (
         <>
-            <div onClick={handleShow} className='show mb-5 mx-1 pb-3'>
+            <div onClick={handleShow} className='series mb-5 mx-1 pb-3'>
                 <p>
                     {show.name}
                     <span className='rating'> {show.rating.average ?
                             show.rating.average
-                            : ''} </span>
+                            : ' '} </span>
                 </p>
                 {show.image ?
                     <img src={show.image.medium} alt='' />
@@ -28,11 +28,11 @@ const Series = ({ show }) => {
                     <Modal.Title>{show.name}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div className=''>
+                    <div>
                         {show.image ?
-                            <img src={show.image.medium} alt="" />
+                            <img className='pb-3' src={show.image.medium} alt="" />
                             : ''}
-                        <p>{show.summary}</p>
+                        <p className='modalShowSummary'>{show.summary}</p>
                     </div>
                 </Modal.Body>
                 <Modal.Footer>

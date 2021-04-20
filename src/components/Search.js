@@ -8,14 +8,11 @@ const Search = () => {
 
     const [shows, setShows] = useState([]);
 
-    const[ search, setSearch ] = useState(false);
-
     useEffect(() => {
-        fetch('http://api.tvmaze.com/search/shows?q=comedy')
+        fetch('http://api.tvmaze.com/search/shows?q=it')
             .then(res => res.json())
             .then(data => {
                 setShows(data);
-                console.log(data)
             })
     }, [])
 
@@ -24,7 +21,6 @@ const Search = () => {
             .then(res => res.json())
             .then(data => {
                 setShows(data);
-                console.log(data)
             })
     }
 

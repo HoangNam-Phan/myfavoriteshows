@@ -1,19 +1,26 @@
 import React from 'react'
+import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom'
+import { createList } from '../api/api'
 
 const Create = () => {
 
-    const submitHandler = (e) => {
-        e.preventDefault();
-        console.log('handled the submit');
+    const { register, handleSubmit } = useForm();
+    const history = useHistory();
+    const submitHandler = async (data) => {
+        await createList(data)
+        history.push('/lists')
     }
 
     return (
         <div className='container mt-5'>
             <h2>Give your list a name:</h2>
-            <form onSubmit={submitHandler}>
+            <form onSubmit={handleSubmit(submitHandler)}>
                 <div className='mb-3'>
-                    <label htmlFor="text"></label>
-                    <input className='form-control' type="text" name='text' />
+                    <label htmlFor="name"></label>
+                    <input {...register('name')}
+                        className='form-control' type="text"
+                        name='name' placeholder='Name...' />
                 </div>
                 <div>
                     <button type='submit' className='btn btn-primary'>Create</button>
