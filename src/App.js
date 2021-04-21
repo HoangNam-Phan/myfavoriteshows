@@ -5,6 +5,7 @@ import Main from './components/Main'
 import Create from './components/Create'
 import Lists from './components/Lists'
 import Search from './components/Search'
+import ListDetails from './components/ListDetails'
 
 import './App.css';
 
@@ -46,6 +47,7 @@ function App() {
         <Route exact path='/create' component={Create} />
         <Route exact path='/lists' component={Lists} />
         <Route exact path='/search' component={Search} />
+        <Route exact path='/lists/:id' component={ListDetails} />
       </Switch>
     </div>
   );

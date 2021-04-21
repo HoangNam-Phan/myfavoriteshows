@@ -15,3 +15,5 @@ export const deleteList = (id) => {
             method: "DELETE",
         })
 }
+
+export const getList = (id) => fetch(`http://localhost:4000/lists/${id}`).then(res => res.json())

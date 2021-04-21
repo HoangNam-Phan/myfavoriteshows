@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import Series from './Series'
+import Shows from './Shows';
 
 const Search = () => {
 
@@ -41,7 +41,7 @@ const Search = () => {
             <div className='showContainer d-flex mt-5'>
                 {shows.length > 0 &&
                     shows.map((show) =>
-                        <Series {...show} key={show.show.id} />
+                        <Shows {...show} key={show.show.id} />
                     )
                 }
             </div>

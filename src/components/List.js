@@ -2,10 +2,9 @@ import React, { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import { deleteList } from '../api/api'
-import { useHistory } from 'react-router'
+import { Link } from 'react-router-dom'
 
-
-const List = ({ _id, name }) => {
+const List = ({ _id, name, rerender }) => {
 
     const [display, setDisplay] = useState(false);
     const handleClose = () => setDisplay(false);
@@ -13,18 +12,24 @@ const List = ({ _id, name }) => {
 
     const handleDelete = () => {
         const deleter = async () => {
-            await deleteList(_id);       
-            handleClose()     
+            await deleteList(_id);
+            handleClose()
+            rerender()
         }
         deleter();
+
     }
 
     return (
         <>
             <tr key={_id}>
                 <td>1</td>
-                <td>{name}</td>
-                <td className='text-right'><span onClick={handleShow}>Delete</span></td>
+                <td className='d-flex'>{name}
+                    <div>
+                       <Link to={`/lists/${_id}`}> <span className='editBtn'>Edit</span></Link>
+                        <span className='deleteBtn' onClick={handleShow}>Delete</span>
+                    </div>
+                </td>
             </tr>
 
             <Modal show={display} onHide={handleClose}>

@@ -7,15 +7,15 @@ const Lists = () => {
     const [lists, setLists] = useState([]);
 
     const rerender = () => {
-        
-    }
-
-    useEffect(() => {
         fetch('http://localhost:4000/lists')
             .then(res => res.json())
             .then(data => {
                 setLists(data);
             })
+    }
+
+    useEffect(() => {
+        rerender()
     }, [])
 
 
@@ -32,7 +32,7 @@ const Lists = () => {
                 <tbody>
                     {
                         lists.map((list) => (
-                            <List key={list._id} name={list.name} _id={list._id}/>
+                            <List key={list._id} name={list.name} _id={list._id} rerender={rerender}/>
                         ))
                     }
                 </tbody>

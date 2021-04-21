@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import Dropdown from 'react-bootstrap/Dropdown'
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
 
-
-const Series = ({ show }) => {
+const Shows = ({ show }) => {
 
     const [display, setDisplay] = useState(false);
     const handleClose = () => setDisplay(false);
@@ -15,8 +17,8 @@ const Series = ({ show }) => {
                 <p>
                     {show.name}
                     <span className='rating'> {show.rating.average ?
-                            show.rating.average
-                            : ' '} </span>
+                        show.rating.average
+                        : ' '} </span>
                 </p>
                 {show.image ?
                     <img src={show.image.medium} alt='' />
@@ -39,13 +41,14 @@ const Series = ({ show }) => {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
-                    </Button>
+                    <DropdownButton as={ButtonGroup} title="Add to..." id="bg-nested-dropdown">
+                        <Dropdown.Item eventKey="1">Dropdown link</Dropdown.Item>
+                        <Dropdown.Item eventKey="2">Dropdown link</Dropdown.Item>
+                    </DropdownButton>
                 </Modal.Footer>
             </Modal>
         </>
     )
 }
 
-export default Series
+export default Shows
