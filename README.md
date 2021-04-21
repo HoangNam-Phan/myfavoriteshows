@@ -1,1 +1,1 @@
-# MyFavoriteSeries App
+# MyFavoriteShows App
