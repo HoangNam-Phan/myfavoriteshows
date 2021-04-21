@@ -24,15 +24,15 @@ const Series = ({ show }) => {
             </div>
 
             <Modal show={display} onHide={handleClose}>
-                <Modal.Header closeButton>
+                <Modal.Header>
                     <Modal.Title>{show.name}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div>
+                    <div className='modalContent'>
                         {show.image ?
-                            <img className='pb-3' src={show.image.medium} alt="" />
+                            <img className='modalImg pb-3' src={show.image.medium} alt="" />
                             : ''}
-                        <p className='modalShowSummary'>{show.summary}</p>
+                        <p>{show.summary}</p>
                     </div>
                 </Modal.Body>
                 <Modal.Footer>

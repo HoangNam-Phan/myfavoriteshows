@@ -32,7 +32,7 @@ const Search = () => {
                     <label htmlFor="text"></label>
                     <input {...register('text')}
                         className='form-control' type="text"
-                        name='text' placeholder='Avatar: The Last Airbender...' />
+                        name='text' placeholder='Food...' />
                 </div>
                 <div>
                     <button type='submit' className='btn btn-primary'>Search</button>

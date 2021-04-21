@@ -1,16 +1,5 @@
-export const getLists = () => {
-    fetch("http://localhost:4000/lists")
-        .then((res) => {
-            const data = res.json()
-            console.log(data)
-        })
-        .then(data => {
-            console.log(data)
-        })
-}
-
 export const createList = (list) => {
-    fetch("http://localhost:4000/create", {
+    fetch("http://localhost:4000/lists", {
         method: "POST",
         headers: {
             "Accept": "application/json",
@@ -18,4 +7,11 @@ export const createList = (list) => {
         },
         body: JSON.stringify(list)
     })
+}
+
+export const deleteList = (id) => {
+    fetch(`http://localhost:4000/lists/${id}`
+        , {
+            method: "DELETE",
+        })
 }
