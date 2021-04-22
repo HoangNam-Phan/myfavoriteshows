@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import Table from 'react-bootstrap/Table'
 import List from './List'
+import { getLists } from '../api/api'
 
 const Lists = () => {
 
     const [lists, setLists] = useState([]);
 
-    const rerender = () => {
-        fetch('http://localhost:4000/lists')
-            .then(res => res.json())
-            .then(data => {
-                setLists(data);
-            })
+    // API-CALL: FETCH ALLER LISTEN
+    const rerender = async () => {
+        await getLists()
+        .then(data => setLists(data));
     }
 
     useEffect(() => {
@@ -20,6 +19,7 @@ const Lists = () => {
 
 
     return (
+        // GIBT TABELLE MIT LISTENNAMEN UND BUTTONS WIEDER
         <div className='container mt-5'>
             <h2>Lists:</h2>
             <Table bordered hover variant="dark">
@@ -31,7 +31,7 @@ const Lists = () => {
                 <tbody>
                     {
                         lists.map((list) => (
-                            <List key={list._id} name={list.name} _id={list._id} rerender={rerender}/>
+                            <List key={list._id} name={list.name} _id={list._id} rerender={rerender} />
                         ))
                     }
                 </tbody>

@@ -11,13 +11,13 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup'
 
 const Shows = ({ show }) => {
 
-    // Modal setup
+    // MODAL SETUP
     const [display, setDisplay] = useState(false);
     const handleClose = () => setDisplay(false);
     const handleShow = () => setDisplay(true);
 
-    // Get Lists & Create Button Dropdowns
-    const [ , setLists] = useState();
+    // API-CALL: FETCHED ALLE LISTEN FÜR DIE DROPDOWN-BUTTONS
+    const [, setLists] = useState();
     useEffect(() => {
         fetch('http://localhost:4000/lists')
             .then(res => res.json())
@@ -26,7 +26,7 @@ const Shows = ({ show }) => {
             })
     }, [])
 
-    // Function to add Show to specific List
+    // API-CALL: ADDED EINE SHOW ZU EINER
     const addToList = (showName, showRating, id, listId) => {
         const fetchList = async () => {
             await updateList(showName, showRating, id, listId)
@@ -38,11 +38,12 @@ const Shows = ({ show }) => {
 
     return (
         <>
+            {/* SHOW CONTAINER IM SUCHFELD */}
             <div onClick={handleShow} className='shows mb-5 mx-1 pb-3'>
                 <p>
                     {show.name}
                     <span className='rating'> {show.rating.average ?
-                       <i>{`(${show.rating.average})`}</i>
+                        <i>{`(${show.rating.average})`}</i>
                         : ''} </span>
                 </p>
                 {show.image ?
@@ -50,7 +51,7 @@ const Shows = ({ show }) => {
                     : <img src={img} alt='' />}
             </div>
 
-
+            {/* SHOW-DETAILS ONCLICK */}
             <Modal show={display} onHide={handleClose}>
                 <Modal.Header>
                     <Modal.Title>{show.name}</Modal.Title>

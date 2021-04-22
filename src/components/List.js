@@ -8,32 +8,31 @@ import { AiFillEdit } from 'react-icons/ai';
 
 const List = ({ _id, name, rerender }) => {
 
+    // MODAL SETUP
     const [display, setDisplay] = useState(false);
     const handleClose = () => setDisplay(false);
     const handleShow = () => setDisplay(true);
 
-    const handleDelete = () => {
-        const deleter = async () => {
-            await deleteList(_id);
-            handleClose()
-            rerender()
-        }
-        deleter();
-
+    // API-CALL: LISTE LÖSCHEN
+    const handleDelete = async () => {
+        await deleteList(_id);
+        handleClose()
+        rerender()
     }
 
     return (
+        // GIBT LISTENNAMEN UND BUTTONS WIEDER
         <>
             <tr className='d-flex' key={_id}>
                 <td className='listName'>
                     <span> {name}</span>
                 </td>
-                    <td>
-                        <Link to={`/lists/${_id}`}> <span className='listEditBtn p-2'><AiFillEdit /></span></Link>
-                    </td>
-                    <td>
-                        <span className='bin p-2' onClick={handleShow}><RiDeleteBin5Fill /></span>
-                    </td>
+                <td>
+                    <Link to={`/lists/${_id}`}> <span className='listEditBtn p-2'><AiFillEdit /></span></Link>
+                </td>
+                <td>
+                    <span className='bin p-2' onClick={handleShow}><RiDeleteBin5Fill /></span>
+                </td>
             </tr>
 
             <Modal show={display} onHide={handleClose}>

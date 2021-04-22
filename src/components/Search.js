@@ -8,6 +8,7 @@ const Search = () => {
 
     const [shows, setShows] = useState([]);
 
+    // API-CALL: FETCHED SHOWS AUS DER TV-MAZE API NACH VORGEGEBENEN QUERY STRING
     useEffect(() => {
         fetch('http://api.tvmaze.com/search/shows?q=it')
             .then(res => res.json())
@@ -16,6 +17,7 @@ const Search = () => {
             })
     }, [])
 
+    // API-CALL: FETCHED SHOWS AUS DER TV-MAZE API NACH EINGEGEBENEN QUERY STRING
     const submitHandler = async (data) => {
         fetch(`http://api.tvmaze.com/search/shows?q=${data.text}`)
             .then(res => res.json())
@@ -26,6 +28,7 @@ const Search = () => {
     }
 
     return (
+        // SUCHFELD & SHOWS CONTAINER
         <div className='container mt-5'>
             <h2>Type in your search term:</h2>
             <form onSubmit={handleSubmit(submitHandler)}>

@@ -10,14 +10,15 @@ const ListDetails = () => {
     const [list, setList] = useState()
     const match = useRouteMatch();
 
+    // API-CALL: FETCHED EINE BESTIMMTE LISTE NACH ID
     const rerender = async () => {
-        const list = await getList(match.params.id)
-        setList(list)
+        await getList(match.params.id)
+        .then(data => setList(data))
     }
 
     useEffect(() => {
         rerender()
-    }, [])
+    })
 
     return (
         <div className='container mt-5'>

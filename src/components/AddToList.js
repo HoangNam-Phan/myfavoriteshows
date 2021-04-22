@@ -4,7 +4,8 @@ import Dropdown from 'react-bootstrap/Dropdown'
 const AddToList = ({ name, rating, id, addToList }) => {
 
     const [lists, setLists] = useState();
-
+ 
+    // API-CALL: FETCH ALLER LISTEN
     useEffect(() => {
         fetch('http://localhost:4000/lists')
             .then(res => res.json())
@@ -16,6 +17,7 @@ const AddToList = ({ name, rating, id, addToList }) => {
 
     return (
         <>
+        {/* ERSTELLT DROPDOWN BUTTON FÜR DAS HINZUFÜGEN EINER SHOW IN EINE LISTE */}
             {
                 lists &&
                 lists.map((list) => (

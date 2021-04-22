@@ -6,21 +6,21 @@ import { deleteFromList } from '../api/api'
 
 const ListShows = ({ name, id, rating, listId, rerender }) => {
 
+    // MODAL SETUP
     const [display, setDisplay] = useState(false);
     const handleClose = () => setDisplay(false);
     const handleShow = () => setDisplay(true);
 
-    const handleDelete =  (id) => {
-        const deleter = async () => {
-            await deleteFromList(id, listId)
-            handleClose();
-            rerender();
-        }
-        deleter()
+    // API-CALL: LÖSCHT EINE SHOW AUS DER LISTE
+    const handleDelete = async (id) => {
+        await deleteFromList(id, listId)
+        rerender();
+        handleClose();
     }
 
     return (
         <>
+            {/* SHOW INFOS */}
             <tr>
                 <td><a href={`https://www.tvmaze.com/shows/${id}`}>{name}</a></td>
                 <td className='rating'>{rating === null ? 'N/A' : rating}</td>

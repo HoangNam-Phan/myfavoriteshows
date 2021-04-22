@@ -7,12 +7,15 @@ const Create = () => {
 
     const { register, handleSubmit } = useForm();
     const history = useHistory();
+
+    // API-CALL LISTE ERSTELLEN UND REDIRECT
     const submitHandler = async (data) => {
         await createList(data)
         history.push('/lists')
     }
 
     return (
+        // FORM UM LISTE ZU ERSTELLEN
         <div className='container mt-5'>
             <h2>Give your list a name:</h2>
             <form onSubmit={handleSubmit(submitHandler)}>
