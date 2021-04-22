@@ -1,19 +1,41 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import AddToList from './AddToList'
+import { updateList } from '../api/api'
+
+// React Bootstrap Components
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import DropdownButton from 'react-bootstrap/DropdownButton'
-import Dropdown from 'react-bootstrap/Dropdown'
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 
 const Shows = ({ show }) => {
 
+    // Modal setup
     const [display, setDisplay] = useState(false);
     const handleClose = () => setDisplay(false);
     const handleShow = () => setDisplay(true);
 
+    // Get Lists & Create Button Dropdowns
+    const [ , setLists] = useState();
+    useEffect(() => {
+        fetch('http://localhost:4000/lists')
+            .then(res => res.json())
+            .then(data => {
+                setLists(data);
+            })
+    }, [])
+
+    const addToList = (showName, showRating, id) => {
+        const fetchList = async () => {
+            await updateList(showName, showRating, id)
+        }
+        fetchList();
+    }
+
+
     return (
         <>
-            <div onClick={handleShow} className='series mb-5 mx-1 pb-3'>
+            <div onClick={handleShow} className='shows mb-5 mx-1 pb-3'>
                 <p>
                     {show.name}
                     <span className='rating'> {show.rating.average ?
@@ -25,6 +47,7 @@ const Shows = ({ show }) => {
                     : ''}
             </div>
 
+            {/* Modal Template */}
             <Modal show={display} onHide={handleClose}>
                 <Modal.Header>
                     <Modal.Title>{show.name}</Modal.Title>
@@ -42,8 +65,7 @@ const Shows = ({ show }) => {
                         Close
                     </Button>
                     <DropdownButton as={ButtonGroup} title="Add to..." id="bg-nested-dropdown">
-                        <Dropdown.Item eventKey="1">Dropdown link</Dropdown.Item>
-                        <Dropdown.Item eventKey="2">Dropdown link</Dropdown.Item>
+                        <AddToList addToList={addToList} {...show} />
                     </DropdownButton>
                 </Modal.Footer>
             </Modal>

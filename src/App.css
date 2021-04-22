@@ -21,12 +21,12 @@ html {
   flex-wrap: wrap;
 }
 
-.series {
+.shows {
   width: 250px;
   text-align: center;
 }
 
-.series:hover {
+.shows:hover {
   background-color: #a5a58d;
   cursor: pointer;
   transition: 0.5s;

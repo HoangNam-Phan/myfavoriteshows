@@ -5,7 +5,7 @@ import Table from 'react-bootstrap/Table'
 
 const ListDetails = () => {
 
-    const [ list, setList ] = useState()
+    const [list, setList] = useState()
     const match = useRouteMatch();
 
     useEffect(() => {
@@ -14,7 +14,11 @@ const ListDetails = () => {
             setList(list)
         }
         fetchList()
-    }, [])
+    }, [match.params.id])
+
+    const clickHandler = () => {
+        alert(list.show.name)
+    }
 
     return (
         <div className='container mt-5'>
@@ -22,16 +26,21 @@ const ListDetails = () => {
             <Table striped bordered hover>
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th colSpan='3'>Titles</th>
+                        <th>Titles</th>
+                        <th>Rating</th>
                     </tr>
                 </thead>
-                <tbody> 
-                    {/* { list &&
-                        list.series.map((series) => (
-                            <tr>hi im {series.name}</tr>
+                <tbody>
+                    {list &&
+                        list.shows.map((show) => (
+                            <>
+                                <tr>
+                                    <td>{show.name}</td>
+                                    <td>{show.rating === null ? 'N/A' : show.rating}</td>
+                                </tr>
+                            </>
                         ))
-                    } */}
+                    }
                 </tbody>
             </Table>
         </div>
