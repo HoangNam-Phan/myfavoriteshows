@@ -70,5 +70,5 @@ html {
 /* __________________________________________________________________________ */
 
 .rating {
-  width: fit-content;
+  text-align: center !important;
 }

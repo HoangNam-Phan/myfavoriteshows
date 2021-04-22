@@ -26,6 +26,7 @@ const Shows = ({ show }) => {
             })
     }, [])
 
+    // Function to add Show to specific List
     const addToList = (showName, showRating, id) => {
         const fetchList = async () => {
             await updateList(showName, showRating, id)
@@ -48,7 +49,7 @@ const Shows = ({ show }) => {
                     : <img src={img} alt='' />}
             </div>
 
-            {/* Modal Template */}
+
             <Modal show={display} onHide={handleClose}>
                 <Modal.Header>
                     <Modal.Title>{show.name}</Modal.Title>

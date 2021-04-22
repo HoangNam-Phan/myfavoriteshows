@@ -24,7 +24,7 @@ const ListDetails = () => {
                 <thead>
                     <tr>
                         <th className='listTitles'>Titles</th>
-                        <th>Score</th>
+                        <th className='score'>Score</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -34,7 +34,7 @@ const ListDetails = () => {
                             <>
                                 <tr>
                                     <td>{show.name}</td>
-                                    <td>{show.rating === null ? 'N/A' : show.rating}</td>
+                                    <td className='rating'>{show.rating === null ? 'N/A' : show.rating}</td>
                                     <td className='bin'><span className='p-2'><RiDeleteBin5Fill /></span> </td>
                                 </tr>
                             </>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Dropdown from 'react-bootstrap/Dropdown'
 
-const AddToList = ({ name, rating, addToList }) => {
+const AddToList = ({ name, rating, id, addToList }) => {
 
     const [lists, setLists] = useState();
 

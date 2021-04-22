@@ -21,6 +21,7 @@ const Search = () => {
             .then(res => res.json())
             .then(data => {
                 setShows(data);
+                console.log(data)
             })
     }
 
