@@ -3,6 +3,8 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import { deleteList } from '../api/api'
 import { Link } from 'react-router-dom'
+import { RiDeleteBin5Fill } from 'react-icons/ri';
+import { AiFillEdit } from 'react-icons/ai';
 
 const List = ({ _id, name, rerender }) => {
 
@@ -22,14 +24,16 @@ const List = ({ _id, name, rerender }) => {
 
     return (
         <>
-            <tr key={_id}>
-                <td>1</td>
-                <td className='d-flex'>{name}
-                    <div>
-                       <Link to={`/lists/${_id}`}> <span className='editBtn'>Edit</span></Link>
-                        <span className='deleteBtn' onClick={handleShow}>Delete</span>
-                    </div>
+            <tr className='d-flex' key={_id}>
+                <td className='listName'>
+                    <span> {name}</span>
                 </td>
+                    <td>
+                        <Link to={`/lists/${_id}`}> <span className='p-2'><AiFillEdit /></span></Link>
+                    </td>
+                    <td>
+                        <span className='p-2' onClick={handleShow}><RiDeleteBin5Fill /></span>
+                    </td>
             </tr>
 
             <Modal show={display} onHide={handleClose}>

@@ -22,11 +22,10 @@ const Lists = () => {
     return (
         <div className='container mt-5'>
             <h2>Lists:</h2>
-            <Table striped bordered hover>
+            <Table  bordered hover>
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th colSpan='3'>ListName</th>
+                        <th>Name</th>
                     </tr>
                 </thead>
                 <tbody>

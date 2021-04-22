@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import AddToList from './AddToList'
 import { updateList } from '../api/api'
+import img from '../img/img.png'
 
 // React Bootstrap Components
 import Modal from 'react-bootstrap/Modal'
@@ -40,11 +41,11 @@ const Shows = ({ show }) => {
                     {show.name}
                     <span className='rating'> {show.rating.average ?
                         show.rating.average
-                        : ' '} </span>
+                        : ''} </span>
                 </p>
                 {show.image ?
                     <img src={show.image.medium} alt='' />
-                    : ''}
+                    : <img src={img} alt='' />}
             </div>
 
             {/* Modal Template */}

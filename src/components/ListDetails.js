@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useRouteMatch } from "react-router-dom";
 import { getList } from '../api/api'
 import Table from 'react-bootstrap/Table'
+import { RiDeleteBin5Fill } from 'react-icons/ri';
 
 const ListDetails = () => {
 
@@ -16,18 +17,15 @@ const ListDetails = () => {
         fetchList()
     }, [match.params.id])
 
-    const clickHandler = () => {
-        alert(list.show.name)
-    }
-
     return (
         <div className='container mt-5'>
             <h2>Listname: {list && list.name}</h2>
-            <Table striped bordered hover>
+            <Table bordered hover>
                 <thead>
                     <tr>
-                        <th>Titles</th>
-                        <th>Rating</th>
+                        <th className='listTitles'>Titles</th>
+                        <th>Score</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,6 +35,7 @@ const ListDetails = () => {
                                 <tr>
                                     <td>{show.name}</td>
                                     <td>{show.rating === null ? 'N/A' : show.rating}</td>
+                                    <td className='bin'><span className='p-2'><RiDeleteBin5Fill /></span> </td>
                                 </tr>
                             </>
                         ))
