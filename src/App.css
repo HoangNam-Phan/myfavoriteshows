@@ -1,12 +1,13 @@
 /* GLOBAL */
-/* 
+
 html {
-  background-color: #6b705c;
+  background-color: #343a40;
 }
 
 .body {
-  background-color: #6b705c;
-} */
+  background-color: #343a40;
+  color: white;
+}
 
 /* __________________________________________________________________________ */
 /* __________________________________________________________________________ */
@@ -17,6 +18,10 @@ html {
   height: 90vh;
 }
 
+.navBar {
+  display: flex;
+  justify-content: flex-end ;
+}
 /* __________________________________________________________________________ */
 /* __________________________________________________________________________ */
 
@@ -34,7 +39,7 @@ html {
 }
 
 .shows:hover {
-  background-color: #a5a58d;
+  background-color: #6c757d;
   cursor: pointer;
   transition: 0.5s;
 }
@@ -66,9 +71,17 @@ html {
   width: 90%;
 }
 
+.listEditBtn {
+  color: white;
+}
+
+.bin:hover {
+  cursor: pointer;
+}
+
 /* __________________________________________________________________________ */
 /* __________________________________________________________________________ */
 
 .rating {
-  text-align: center !important;
+  text-align: center;
 }

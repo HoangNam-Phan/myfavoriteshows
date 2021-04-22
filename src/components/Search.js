@@ -27,7 +27,7 @@ const Search = () => {
 
     return (
         <div className='container mt-5'>
-            <h2>Type in a series name or search term you want to look for:</h2>
+            <h2>Type in your search term:</h2>
             <form onSubmit={handleSubmit(submitHandler)}>
                 <div className='mb-3'>
                     <label htmlFor="text"></label>
@@ -36,7 +36,7 @@ const Search = () => {
                         name='text' placeholder='Food...' />
                 </div>
                 <div>
-                    <button type='submit' className='btn btn-primary'>Search</button>
+                    <button type='submit' className='btn btn-dark'>Search</button>
                 </div>
             </form>
             <div className='showContainer d-flex mt-5'>

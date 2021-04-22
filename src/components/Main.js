@@ -8,7 +8,7 @@ const main = () => {
             <h1 className='mb-3'>Welcome To MyFavoriteShows</h1>
             <h3 className='mb-3'>Get started</h3>
             <Link to='/create'>
-                <button className='btn btn-primary'>Create new List</button>
+                <button className='btn btn-dark'>Create a new List</button>
             </Link>
         </div>
     )

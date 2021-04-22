@@ -19,7 +19,7 @@ const AddToList = ({ name, rating, id, addToList }) => {
             {
                 lists &&
                 lists.map((list) => (
-                    <Dropdown.Item onClick={() => addToList(name, rating.average, list._id)} key={list._id}>
+                    <Dropdown.Item onClick={() => addToList(name, rating.average, id, list._id)} key={list._id}>
                         {list.name}
                     </Dropdown.Item>
                 ))

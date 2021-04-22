@@ -27,11 +27,12 @@ const Shows = ({ show }) => {
     }, [])
 
     // Function to add Show to specific List
-    const addToList = (showName, showRating, id) => {
+    const addToList = (showName, showRating, id, listId) => {
         const fetchList = async () => {
-            await updateList(showName, showRating, id)
+            await updateList(showName, showRating, id, listId)
         }
         fetchList();
+        handleClose();
     }
 
 
@@ -41,7 +42,7 @@ const Shows = ({ show }) => {
                 <p>
                     {show.name}
                     <span className='rating'> {show.rating.average ?
-                        show.rating.average
+                       <i>{`(${show.rating.average})`}</i>
                         : ''} </span>
                 </p>
                 {show.image ?

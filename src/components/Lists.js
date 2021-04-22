@@ -22,7 +22,7 @@ const Lists = () => {
     return (
         <div className='container mt-5'>
             <h2>Lists:</h2>
-            <Table  bordered hover>
+            <Table bordered hover variant="dark">
                 <thead>
                     <tr>
                         <th>Name</th>

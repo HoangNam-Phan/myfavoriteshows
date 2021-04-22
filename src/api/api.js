@@ -9,14 +9,25 @@ export const createList = (list) => {
     })
 }
 
-export const updateList = (name, rating, id) => {
-    fetch(`http://localhost:4000/lists/${id}`, {
+export const updateList = (name, rating, id, listId) => {
+    fetch(`http://localhost:4000/lists/${listId}`, {
         method: "POST",
         headers: {
             "Accept": "application/json",
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ name, rating })
+        body: JSON.stringify({ name, rating, id })
+    })
+}
+
+export const deleteFromList = (id, listId) => {
+    fetch(`http://localhost:4000/lists/${listId}`, {
+        method: "PUT",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ id })
     })
 }
 

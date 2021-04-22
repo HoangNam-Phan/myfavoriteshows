@@ -23,7 +23,7 @@ const Create = () => {
                         name='name' placeholder='Name...' />
                 </div>
                 <div>
-                    <button type='submit' className='btn btn-primary'>Create</button>
+                    <button type='submit' className='btn btn-dark'>Create</button>
                 </div>
             </form>
 
