@@ -16,6 +16,7 @@ const ListShows = ({ name, id, rating, listId, rerender }) => {
         await deleteFromList(id, listId)
         rerender();
         handleClose();
+        alert(`${name} has been deleted from the list. You might have to refresh the page to see the change.`)
     }
 
     return (

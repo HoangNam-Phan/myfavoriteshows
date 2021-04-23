@@ -18,6 +18,7 @@ const List = ({ _id, name, rerender }) => {
         await deleteList(_id);
         handleClose()
         rerender()
+        alert(`${name} has been deleted. You might have to refresh the page to see the change.`)
     }
 
     return (

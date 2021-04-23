@@ -33,6 +33,7 @@ const Shows = ({ show }) => {
         }
         fetchList();
         handleClose();
+        alert(`${showName} has been added to the list. You might have to refresh the page to see the change.`)
     }
 
 

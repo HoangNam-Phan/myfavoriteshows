@@ -12,6 +12,7 @@ const Create = () => {
     const submitHandler = async (data) => {
         await createList(data)
         history.push('/lists')
+        alert('The list has been created. You might have to refresh the page to see the change.')
     }
 
     return (
