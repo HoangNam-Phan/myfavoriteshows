@@ -36,7 +36,7 @@ const Search = () => {
                     <label htmlFor="text"></label>
                     <input {...register('text')}
                         className='form-control' type="text"
-                        name='text' placeholder='Food...' />
+                        name='text' placeholder='Show name...' />
                 </div>
                 <div>
                     <button type='submit' className='btn btn-dark'>Search</button>
