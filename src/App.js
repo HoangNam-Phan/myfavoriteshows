@@ -42,6 +42,7 @@ function App() {
           </div>
         </div>
       </nav>
+      {/* VIEWS */}
       <Switch>
         <Route exact path='/' component={Main} />
         <Route exact path='/create' component={Create} />
