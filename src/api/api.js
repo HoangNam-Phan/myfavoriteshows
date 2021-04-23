@@ -1,6 +1,6 @@
 // LISTE ERSTELLEN
 export const createList = (list) => {
-    fetch("http://localhost:4000/lists", {
+    fetch("https://myfavoriteshows.herokuapp.com/lists", {
         method: "POST",
         headers: {
             "Accept": "application/json",
@@ -12,7 +12,7 @@ export const createList = (list) => {
 
 // SHOW ZUR LISTE HINZUFÜGEN
 export const updateList = (name, rating, id, listId) => {
-    fetch(`http://localhost:4000/lists/${listId}`, {
+    fetch(`https://myfavoriteshows.herokuapp.com/lists/${listId}`, {
         method: "POST",
         headers: {
             "Accept": "application/json",
@@ -24,7 +24,7 @@ export const updateList = (name, rating, id, listId) => {
 
 // EINE SHOW AUS EINER LISTE LÖSCHEN
 export const deleteFromList = (id, listId) => {
-    fetch(`http://localhost:4000/lists/${listId}`, {
+    fetch(`https://myfavoriteshows.herokuapp.com/lists/${listId}`, {
         method: "PUT",
         headers: {
             "Accept": "application/json",
@@ -36,14 +36,14 @@ export const deleteFromList = (id, listId) => {
 
 // EINE LISTE LÖSCHEN
 export const deleteList = (id) => {
-    fetch(`http://localhost:4000/lists/${id}`
+    fetch(`https://myfavoriteshows.herokuapp.com/lists/${id}`
         , {
             method: "DELETE",
         })
 }
 
 // EINE BESTIMMTE LISTEN FETCHEN
-export const getList = (id) => fetch(`http://localhost:4000/lists/${id}`).then(res => res.json())
+export const getList = (id) => fetch(`https://myfavoriteshows.herokuapp.com/lists/${id}`).then(res => res.json())
 
 //ALLE LISTEN FETCHEN
-export const getLists = () => fetch('http://localhost:4000/lists').then(res => res.json())
+export const getLists = () => fetch('https://myfavoriteshows.herokuapp.com/lists').then(res => res.json())

@@ -19,7 +19,7 @@ const Shows = ({ show }) => {
     // API-CALL: FETCHED ALLE LISTEN FÜR DIE DROPDOWN-BUTTONS
     const [, setLists] = useState();
     useEffect(() => {
-        fetch('http://localhost:4000/lists')
+        fetch('https://myfavoriteshows.herokuapp.com/lists')
             .then(res => res.json())
             .then(data => {
                 setLists(data);

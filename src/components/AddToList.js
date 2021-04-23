@@ -7,7 +7,7 @@ const AddToList = ({ name, rating, id, addToList }) => {
  
     // API-CALL: FETCH ALLER LISTEN
     useEffect(() => {
-        fetch('http://localhost:4000/lists')
+        fetch('https://myfavoriteshows.herokuapp.com/lists')
             .then(res => res.json())
             .then(data => {
                 setLists(data);
