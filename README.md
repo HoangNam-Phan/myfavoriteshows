@@ -1,5 +1,7 @@
 # MyFavoriteShows App
 
+URL: https://myfavoriteshows.netlify.app/
+
 MyFavoriteShows ist meine erste Fullstack-App, welche TV-Serien und Filme aus dem tv-maze Api fetched.
 Der Sinn von MyFavoriteShows ist es Listen erstellen zu können, und dort die TV-Shows und Filme aus der tv-maze api hinzuzufügen.
 Das Backend habe ich auf Heroku deployed und das Frontend auf Netlify.
