@@ -19,15 +19,13 @@ const AddToList = ({ name, rating, id, addToList }) => {
         <>
             {/* ERSTELLT DROPDOWN BUTTON FÜR DAS HINZUFÜGEN EINER SHOW IN EINE LISTE */}
             {
-                lists ?
+                lists &&
                     lists.map((list) => (
                         <Dropdown.Item onClick={() => addToList(name, rating.average, id, list._id)} key={list._id}>
                             {list.name}
                         </Dropdown.Item>
                     ))
-                    : <Dropdown.Item>
-                        No lists yet!
-                    </Dropdown.Item>
+
             }
         </>
     )
