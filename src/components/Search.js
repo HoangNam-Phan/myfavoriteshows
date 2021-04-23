@@ -10,7 +10,7 @@ const Search = () => {
 
     // API-CALL: FETCHED SHOWS AUS DER TV-MAZE API NACH VORGEGEBENEN QUERY STRING
     useEffect(() => {
-        fetch('http://api.tvmaze.com/search/shows?q=it')
+        fetch('https://api.tvmaze.com/search/shows?q=it')
             .then(res => res.json())
             .then(data => {
                 setShows(data);
@@ -19,7 +19,7 @@ const Search = () => {
 
     // API-CALL: FETCHED SHOWS AUS DER TV-MAZE API NACH EINGEGEBENEN QUERY STRING
     const submitHandler = async (data) => {
-        fetch(`http://api.tvmaze.com/search/shows?q=${data.text}`)
+        fetch(`https://api.tvmaze.com/search/shows?q=${data.text}`)
             .then(res => res.json())
             .then(data => {
                 setShows(data);
